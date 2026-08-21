@@ -383,7 +383,7 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="brand-dot"></span> Uso&nbsp;/&nbsp;S23</div>
+    <div class="brand"><span class="brand-dot"></span> Trabajo Práctico Final&nbsp;-&nbsp;Bruno Bustos</div>
     <ul>
       <li><a href="#dataset">La base de datos</a></li>
       <li><a href="#visualizacion">Visualización</a></li>
@@ -403,9 +403,9 @@
       panel de abajo.
     </p>
     <div class="hero-meta">
-      <div><strong>[ X ]</strong>días registrados</div>
-      <div><strong>[ X ]</strong>apps analizadas</div>
-      <div><strong>[ X ]h</strong>promedio diario</div>
+      <div><strong>102</strong>días registrados</div>
+      <div><strong>+130</strong>apps analizadas</div>
+      <div><strong>7,57hs</strong>promedio diario</div>
     </div>
   </div>
 
@@ -422,7 +422,7 @@
         </div>
         <div class="phone-body">
           <div>
-            <div class="big-stat" id="counter">0h</div>
+            <div class="big-stat" id="counter">7h</div>
             <div class="stat-label">Tiempo de pantalla / hoy</div>
           </div>
           <div class="bars" id="bars"></div>
@@ -436,7 +436,7 @@
   <div class="wrap reveal">
     <div class="section-head">
       <div>
-        <div class="eyebrow">01 — Estructura</div>
+        <div class="eyebrow">Estructura de Datos</div>
         <h2>La base de datos</h2>
       </div>
       <p>Así está modelado el registro de uso: una tabla principal de sesiones y una tabla de referencia de aplicaciones. Reemplazá el esquema con el tuyo si difiere.</p>
@@ -462,9 +462,9 @@
         <h3>Campos y fuente</h3>
         <p>De dónde sale cada dato registrado</p>
         <ul class="field-list">
-          <li><span>fuente</span><span>Digital Wellbeing / export propio</span></li>
-          <li><span>granularidad</span><span>por sesión de app</span></li>
-          <li><span>período</span><span>[ completar rango de fechas ]</span></li>
+          <li><span>fuente</span><span>Digital Wellbeing - Dump del Teléfono</span></li>
+          <li><span>granularidad</span><span> Últimos 102 días de uso</span></li>
+          <li><span>período</span><span>25/04/2026 - 06/08/2026</span></li>
           <li><span>registros totales</span><span>[ completar N° de filas ]</span></li>
           <li><span>formato</span><span>CSV → base de datos</span></li>
         </ul>
@@ -477,8 +477,8 @@
   <div class="wrap reveal">
     <div class="section-head">
       <div>
-        <div class="eyebrow">02 — Panel</div>
-        <h2>Visualización</h2>
+        <div class="eyebrow">Visualización #1</div>
+        <h2>Gráfico de Barras en Datawrapper</h2>
       </div>
       <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
     </div>
@@ -486,23 +486,49 @@
     <div class="viz-card">
       <div class="viz-titlebar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="label">panel-uso-s23.embed</span>
+        <span class="label">Aplicaciones y Procesos Más Usadas</span>
       </div>
       <div class="viz-body">
         <div class="viz-placeholder">
-          <div class="mono">&lt;iframe src="<div style="min-height:595px" id="datawrapper-vis-vqRPm"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/vqRPm/embed.js" charset="utf-8" data-target="#datawrapper-vis-vqRPm"></script><noscript><img src="https://datawrapper.dwcdn.net/vqRPm/full.png" alt="Top 20 Procesos Mas Usados en Horas (Bar Chart)" /></noscript></div>"&gt;</div>
-          <div>Pegá tu link embebido en el atributo <span class="mono" style="color:var(--text)">src</span> del iframe de abajo para que el gráfico aparezca acá.</div>
+          <iframe title="Top 20 Procesos Mas Usados en Horas" aria-label="Bar Chart" id="datawrapper-chart-vqRPm" src="https://datawrapper.dwcdn.net/vqRPm/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="595" data-external="1"></iframe><script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+          <div>Este gráfico de barras muestra las horas totales de uso por aplicación, con la distinción que las barras rojas representan procesos internos del telefono, y no.</div>
         </div>
-        <!--
-          Reemplazá el src="" con tu link embed (termina en algo como /embed o tiene &embed=true).
-          Ejemplo: <iframe src="https://lookerstudio.google.com/embed/reporting/XXXX/page/YYYY"></iframe>
-        -->
         <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
       </div>
     </div>
+    
   </div>
+  
 </section>
 
+<section id="visualizacion">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">Visualización #2</div>
+        <h2>Gráfico de Area en Flourish</h2>
+      </div>
+      <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
+    </div>
+
+    <div class="viz-card">
+      <div class="viz-titlebar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="label">Interacciones con el Teléfono</span>
+      </div>
+      <div class="viz-body">
+        <div class="viz-placeholder">
+          <iframe src='https://flo.uri.sh/visualisation/30026223/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+          <div>Este gráfico muestra cuantas veces el telefono se desbloqueó, encendió la pantalla y recibió notificaciones en promedio. </div>
+        </div>
+        <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
+      </div>
+    </div>
+    
+  </div>
+  
+</section>
+  
 <section id="insights">
   <div class="wrap reveal">
     <div class="section-head">
@@ -515,7 +541,7 @@
 
     <div class="insights-grid">
       <div class="insight-card">
-        <div class="num">[ X ]%</div>
+        <div class="num">Whatsapp</div>
         <h4>App más usada</h4>
         <p>[ Completar con la categoría o app que concentra más tiempo de uso y por qué. ]</p>
       </div>
