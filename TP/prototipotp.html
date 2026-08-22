@@ -8,606 +8,643 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#FBF4E7;
-    --surface:#FFFFFF;
-    --surface-2:#F2E6D3;
-    --accent:#6FCDB4;
-    --accent-2:#C9B6EF;
-    --text:#3A342C;
-    --muted:#8A7F6E;
-    --line:rgba(58,52,44,0.10);
-    --radius:18px;
-  }
+:root{
+--bg:#FBF4E7;
+--surface:#FFFFFF;
+--surface-2:#F2E6D3;
+--accent:#6FCDB4;
+--accent-2:#C9B6EF;
+--text:#3A342C;
+--muted:#8A7F6E;
+--line:rgba(58,52,44,0.10);
+--radius:18px;
+}
 
-  *{ margin:0; padding:0; box-sizing:border-box; }
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-  html{ scroll-behavior:smooth; }
+html{ scroll-behavior:smooth; }
 
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:'Inter', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+body{
+background:var(--bg);
+color:var(--text);
+font-family:'Inter', sans-serif;
+line-height:1.6;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
+}
 
-  /* subtle ambient glow backdrop */
-  body::before{
-    content:'';
-    position:fixed;
-    top:-20%; left:50%;
-    width:900px; height:900px;
-    background:radial-gradient(circle, rgba(111,205,180,0.14) 0%, rgba(201,182,239,0.10) 40%, transparent 70%);
-    transform:translateX(-50%);
-    pointer-events:none;
-    z-index:0;
-  }
+/* subtle ambient glow backdrop */
+body::before{
+content:'';
+position:fixed;
+top:-20%; left:50%;
+width:900px; height:900px;
+background:radial-gradient(circle, rgba(111,205,180,0.14) 0%, rgba(201,182,239,0.10) 40%, transparent 70%);
+transform:translateX(-50%);
+pointer-events:none;
+z-index:0;
+}
 
-  h1,h2,h3{ font-family:'Space Grotesk', sans-serif; letter-spacing:-0.02em; }
+h1,h2,h3{ font-family:'Space Grotesk', sans-serif; letter-spacing:-0.02em; }
 
-  .mono{ font-family:'JetBrains Mono', monospace; }
+.mono{ font-family:'JetBrains Mono', monospace; }
 
-  a{ color:inherit; }
+a{ color:inherit; }
 
-  /* ---------- layout shells ---------- */
-  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
+/* ---------- layout shells ---------- */
+.wrap{ max-width:1120px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
 
-  section{ padding:96px 0; }
+section{ padding:96px 0; }
 
-  .eyebrow{
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--accent);
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:18px;
-  }
-  .eyebrow::before{
-    content:'';
-    width:22px; height:1px;
-    background:var(--accent);
-    display:inline-block;
-  }
+.eyebrow{
+font-family:'JetBrains Mono', monospace;
+font-size:13px;
+letter-spacing:0.12em;
+text-transform:uppercase;
+color:var(--accent);
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:18px;
+}
+.eyebrow::before{
+content:'';
+width:22px; height:1px;
+background:var(--accent);
+display:inline-block;
+}
 
-  /* ---------- nav ---------- */
-  nav{
-    position:sticky; top:0; z-index:50;
-    backdrop-filter:blur(14px);
-    background:rgba(251,244,231,0.78);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    padding-top:18px; padding-bottom:18px;
-  }
-  .brand{
-    display:flex; align-items:center; gap:10px;
-    font-family:'Space Grotesk', sans-serif;
-    font-weight:600;
-    font-size:16px;
-  }
-  .brand-dot{
-    width:9px; height:9px; border-radius:50%;
-    background:var(--accent);
-    box-shadow:0 0 12px var(--accent);
-  }
-  nav ul{
-    list-style:none;
-    display:flex; gap:36px;
-    font-size:14px;
-    color:var(--muted);
-  }
-  nav ul a{ text-decoration:none; transition:color .2s ease; }
-  nav ul a:hover{ color:var(--text); }
-  .nav-time{
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-    color:var(--muted);
-  }
+/* ---------- nav ---------- */
+nav{
+position:sticky; top:0; z-index:50;
+backdrop-filter:blur(14px);
+background:rgba(251,244,231,0.78);
+border-bottom:1px solid var(--line);
+}
+nav .wrap{
+display:flex; align-items:center; justify-content:space-between;
+padding-top:18px; padding-bottom:18px;
+}
+.brand{
+display:flex; align-items:center; gap:10px;
+font-family:'Space Grotesk', sans-serif;
+font-weight:600;
+font-size:16px;
+}
+.brand-dot{
+width:9px; height:9px; border-radius:50%;
+background:var(--accent);
+box-shadow:0 0 12px var(--accent);
+}
+nav ul{
+list-style:none;
+display:flex; gap:36px;
+font-size:14px;
+color:var(--muted);
+}
+nav ul a{ text-decoration:none; transition:color .2s ease; }
+nav ul a:hover{ color:var(--text); }
+.nav-time{
+font-family:'JetBrains Mono', monospace;
+font-size:13px;
+color:var(--muted);
+}
 
-  /* ---------- hero ---------- */
-  .hero{
-    padding-top:88px;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:64px;
-    align-items:center;
-  }
-  .hero h1{
-    font-size:clamp(38px, 5vw, 58px);
-    font-weight:700;
-    line-height:1.05;
-  }
-  .hero h1 em{
-    font-style:normal;
-    background:linear-gradient(120deg, var(--accent), var(--accent-2));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-  }
-  .hero p.lead{
-    margin-top:22px;
-    font-size:17px;
-    color:var(--muted);
-    max-width:480px;
-  }
-  .hero-meta{
-    margin-top:36px;
-    display:flex;
-    gap:32px;
-    flex-wrap:wrap;
-  }
-  .hero-meta div{ font-size:13px; color:var(--muted); }
-  .hero-meta strong{
-    display:block;
-    font-family:'JetBrains Mono', monospace;
-    font-size:22px;
-    color:var(--text);
-    font-weight:500;
-  }
+/* ---------- hero ---------- */
+.hero{
+padding-top:88px;
+display:grid;
+grid-template-columns:1.1fr 0.9fr;
+gap:64px;
+align-items:center;
+}
+.hero h1{
+font-size:clamp(38px, 5vw, 58px);
+font-weight:700;
+line-height:1.05;
+}
+.hero h1 em{
+font-style:normal;
+background:linear-gradient(120deg, var(--accent), var(--accent-2));
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+}
+.hero p.lead{
+margin-top:22px;
+font-size:17px;
+color:var(--muted);
+max-width:480px;
+}
+.hero-meta{
+margin-top:36px;
+display:flex;
+gap:32px;
+flex-wrap:wrap;
+}
+.hero-meta div{ font-size:13px; color:var(--muted); }
+.hero-meta strong{
+display:block;
+font-family:'JetBrains Mono', monospace;
+font-size:22px;
+color:var(--text);
+font-weight:500;
+}
 
-  /* ---------- phone mockup (signature element) ---------- */
-  .phone{
-    width:280px;
-    height:572px;
-    margin:0 auto;
-    background:linear-gradient(160deg, #F3E7D4, #DCC9A9);
-    border-radius:42px;
-    padding:14px;
-    box-shadow:
-      0 0 0 1px rgba(58,52,44,0.06),
-      0 40px 80px -20px rgba(58,52,44,0.25),
-      0 0 60px -10px rgba(111,205,180,0.28);
-    position:relative;
-  }
-  .phone-screen{
-    width:100%; height:100%;
-    background:radial-gradient(circle at 30% 0%, rgba(111,205,180,0.20), transparent 55%), #14181F;
-    border-radius:30px;
-    overflow:hidden;
-    position:relative;
-    display:flex;
-    flex-direction:column;
-  }
-  .phone-status{
-    display:flex; justify-content:space-between; align-items:center;
-    padding:16px 22px 8px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    color:#EAF0F6;
-  }
-  .phone-status .icons{ display:flex; gap:6px; align-items:center; color:#8892A0; }
-  .cam-hole{
-    position:absolute; top:12px; left:50%; transform:translateX(-50%);
-    width:10px; height:10px; border-radius:50%;
-    background:#000;
-    box-shadow:0 0 0 3px rgba(255,255,255,0.03);
-  }
-  .phone-body{
-    flex:1;
-    padding:18px 20px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    gap:18px;
-  }
-  .phone-body .big-stat{
-    font-family:'JetBrains Mono', monospace;
-    font-size:44px;
-    font-weight:600;
-    color:var(--accent);
-    text-shadow:0 0 24px rgba(111,205,180,0.55);
-    line-height:1;
-  }
-  .phone-body .stat-label{
-    font-size:12px;
-    color:#8892A0;
-    margin-top:8px;
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-  }
-  .bars{ display:flex; align-items:flex-end; gap:6px; height:70px; margin-top:10px; }
-  .bars i{
-    flex:1;
-    background:linear-gradient(180deg, var(--accent-2), transparent);
-    border-radius:4px 4px 0 0;
-    opacity:0.85;
-    animation:rise 1.4s ease-out both;
-  }
-  @keyframes rise{ from{ transform:scaleY(0); transform-origin:bottom; } to{ transform:scaleY(1); } }
+/* ---------- phone mockup (signature element) ---------- */
+.phone{
+width:280px;
+height:572px;
+margin:0 auto;
+background:linear-gradient(160deg, #F3E7D4, #DCC9A9);
+border-radius:42px;
+padding:14px;
+box-shadow:
+0 0 0 1px rgba(58,52,44,0.06),
+0 40px 80px -20px rgba(58,52,44,0.25),
+0 0 60px -10px rgba(111,205,180,0.28);
+position:relative;
+}
+.phone-screen{
+width:100%; height:100%;
+background:radial-gradient(circle at 30% 0%, rgba(111,205,180,0.20), transparent 55%), #14181F;
+border-radius:30px;
+overflow:hidden;
+position:relative;
+display:flex;
+flex-direction:column;
+}
+.phone-status{
+display:flex; justify-content:space-between; align-items:center;
+padding:16px 22px 8px;
+font-family:'JetBrains Mono', monospace;
+font-size:12px;
+color:#EAF0F6;
+}
+.phone-status .icons{ display:flex; gap:6px; align-items:center; color:#8892A0; }
+.cam-hole{
+position:absolute; top:12px; left:50%; transform:translateX(-50%);
+width:10px; height:10px; border-radius:50%;
+background:#000;
+box-shadow:0 0 0 3px rgba(255,255,255,0.03);
+}
+.phone-body{
+flex:1;
+padding:18px 20px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+gap:18px;
+}
+.phone-body .big-stat{
+font-family:'JetBrains Mono', monospace;
+font-size:44px;
+font-weight:600;
+color:var(--accent);
+text-shadow:0 0 24px rgba(111,205,180,0.55);
+line-height:1;
+}
+.phone-body .stat-label{
+font-size:12px;
+color:#8892A0;
+margin-top:8px;
+text-transform:uppercase;
+letter-spacing:0.08em;
+}
+.bars{ display:flex; align-items:flex-end; gap:6px; height:70px; margin-top:10px; }
+.bars i{
+flex:1;
+background:linear-gradient(180deg, var(--accent-2), transparent);
+border-radius:4px 4px 0 0;
+opacity:0.85;
+animation:rise 1.4s ease-out both;
+}
+@keyframes rise{ from{ transform:scaleY(0); transform-origin:bottom; } to{ transform:scaleY(1); } }
 
-  /* ---------- section headers ---------- */
-  .section-head{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    margin-bottom:44px;
-    gap:24px;
-    flex-wrap:wrap;
-  }
-  .section-head h2{ font-size:32px; font-weight:600; }
-  .section-head p{ color:var(--muted); font-size:15px; max-width:420px; }
+/* ---------- section headers ---------- */
+.section-head{
+display:flex; justify-content:space-between; align-items:flex-end;
+margin-bottom:44px;
+gap:24px;
+flex-wrap:wrap;
+}
+.section-head h2{ font-size:32px; font-weight:600; }
+.section-head p{ color:var(--muted); font-size:15px; max-width:420px; }
 
-  /* ---------- database schema block ---------- */
-  .schema-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-  }
-  .schema-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:28px;
-    box-shadow:0 12px 32px -18px rgba(58,52,44,0.18);
-  }
-  .schema-card h3{
-    font-size:15px;
-    font-weight:600;
-    margin-bottom:6px;
-  }
-  .schema-card p{ color:var(--muted); font-size:14px; margin-bottom:18px; }
-  .code-block{
-    background:var(--surface-2);
-    border-radius:12px;
-    padding:20px 22px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:13px;
-    line-height:1.85;
-    color:#4A4030;
-    overflow-x:auto;
-  }
-  .code-block .k{ color:#8B6FD1; }
-  .code-block .t{ color:#2F9E82; }
-  .code-block .c{ color:var(--muted); }
+/* ---------- database schema block ---------- */
+.schema-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:24px;
+}
+.schema-card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:28px;
+box-shadow:0 12px 32px -18px rgba(58,52,44,0.18);
+}
+.schema-card h3{
+font-size:15px;
+font-weight:600;
+margin-bottom:6px;
+}
+.schema-card p{ color:var(--muted); font-size:14px; margin-bottom:18px; }
+.code-block{
+background:var(--surface-2);
+border-radius:12px;
+padding:20px 22px;
+font-family:'JetBrains Mono', monospace;
+font-size:13px;
+line-height:1.85;
+color:#4A4030;
+overflow-x:auto;
+}
+.code-block .k{ color:#8B6FD1; }
+.code-block .t{ color:#2F9E82; }
+.code-block .c{ color:var(--muted); }
 
-  .field-list{ list-style:none; font-size:14px; }
-  .field-list li{
-    display:flex; justify-content:space-between;
-    padding:11px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .field-list li:last-child{ border-bottom:none; }
-  .field-list span:first-child{ color:var(--text); font-family:'JetBrains Mono', monospace; font-size:13px; }
-  .field-list span:last-child{ color:var(--muted); font-size:13px; }
+.field-list{ list-style:none; font-size:14px; }
+.field-list li{
+display:flex; justify-content:space-between;
+padding:11px 0;
+border-bottom:1px solid var(--line);
+}
+.field-list li:last-child{ border-bottom:none; }
+.field-list span:first-child{ color:var(--text); font-family:'JetBrains Mono', monospace; font-size:13px; }
+.field-list span:last-child{ color:var(--muted); font-size:13px; }
 
-  /* ---------- viz / embed section ---------- */
-  .viz-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    overflow:hidden;
-    box-shadow:0 12px 32px -18px rgba(58,52,44,0.18);
-  }
-  .viz-titlebar{
-    display:flex; align-items:center; gap:8px;
-    padding:16px 20px;
-    border-bottom:1px solid var(--line);
-    background:var(--surface-2);
-  }
-  .viz-titlebar .dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.12); }
-  .viz-titlebar span.label{
-    margin-left:10px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    color:var(--muted);
-  }
-  .viz-body{
-    aspect-ratio:16/9;
-    width:100%;
-    position:relative;
-    background:
-      linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px) 0 0 / 32px 32px,
-      linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px) 0 0 / 32px 32px,
-      var(--bg);
-  }
-  .viz-body iframe{
-    width:100%; height:100%; border:0; position:relative; z-index:2;
-  }
-  .viz-placeholder{
-    position:absolute; inset:0;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    gap:10px;
-    color:var(--muted);
-    font-size:14px;
-    text-align:center;
-    padding:24px;
-    z-index:1;
-    pointer-events:none;
-  }
-  .viz-placeholder .mono{ color:var(--accent); font-size:13px; }
+/* ---------- viz / embed section ---------- */
+.viz-card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:var(--radius);
+overflow:hidden;
+box-shadow:0 12px 32px -18px rgba(58,52,44,0.18);
+}
+.viz-titlebar{
+display:flex; align-items:center; gap:8px;
+padding:16px 20px;
+border-bottom:1px solid var(--line);
+background:var(--surface-2);
+}
+.viz-titlebar .dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.12); }
+.viz-titlebar span.label{
+margin-left:10px;
+font-family:'JetBrains Mono', monospace;
+font-size:12px;
+color:var(--muted);
+}
+.viz-body{
+aspect-ratio:16/9;
+width:100%;
+position:relative;
+background:
+linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px) 0 0 / 32px 32px,
+linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px) 0 0 / 32px 32px,
+var(--bg);
+}
+.viz-body iframe{
+width:100%; height:100%; border:0; position:relative; z-index:2;
+display:none; /* se muestra solo cuando tiene un src real (ver script al final) */
+}
+.viz-body iframe[src]:not([src=""]){
+display:block;
+}
+.viz-placeholder{
+position:absolute; inset:0;
+display:flex; flex-direction:column; align-items:center; justify-content:center;
+gap:10px;
+color:var(--muted);
+font-size:14px;
+text-align:center;
+padding:24px;
+z-index:1;
+pointer-events:none;
+}
+.viz-placeholder .mono{ color:var(--accent); font-size:13px; }
 
-  /* ---------- insights ---------- */
-  .insights-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-  }
-  .insight-card{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:26px;
-    box-shadow:0 12px 32px -18px rgba(58,52,44,0.18);
-    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-  }
-  .insight-card:hover{
-    transform:translateY(-4px);
-    border-color:rgba(111,205,180,0.5);
-  }
-  .insight-card .num{
-    font-family:'JetBrains Mono', monospace;
-    font-size:28px;
-    color:var(--accent);
-    margin-bottom:10px;
-  }
-  .insight-card h4{ font-size:15px; font-weight:600; margin-bottom:8px; }
-  .insight-card p{ font-size:13.5px; color:var(--muted); }
+/* ---------- insights ---------- */
+.insights-grid{
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+gap:20px;
+}
+.insight-card{
+background:var(--surface);
+border:1px solid var(--line);
+border-radius:var(--radius);
+padding:26px;
+box-shadow:0 12px 32px -18px rgba(58,52,44,0.18);
+transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.insight-card:hover{
+transform:translateY(-4px);
+border-color:rgba(111,205,180,0.5);
+}
+.insight-card .num{
+font-family:'JetBrains Mono', monospace;
+font-size:28px;
+color:var(--accent);
+margin-bottom:10px;
+}
+.insight-card h4{ font-size:15px; font-weight:600; margin-bottom:8px; }
+.insight-card p{ font-size:13.5px; color:var(--muted); }
 
-  /* ---------- footer ---------- */
-  footer{
-    border-top:1px solid var(--line);
-    padding:40px 0;
-  }
-  footer .wrap{
-    display:flex; justify-content:space-between; align-items:center;
-    color:var(--muted);
-    font-size:13px;
-  }
+/* ---------- footer ---------- */
+footer{
+border-top:1px solid var(--line);
+padding:40px 0;
+}
+footer .wrap{
+display:flex; justify-content:space-between; align-items:center;
+color:var(--muted);
+font-size:13px;
+}
 
-  /* ---------- scroll reveal ---------- */
-  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
-  .reveal.in{ opacity:1; transform:translateY(0); }
+/* ---------- scroll reveal ---------- */
+.reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
 
-  /* ---------- responsive ---------- */
-  @media (max-width:860px){
-    .hero{ grid-template-columns:1fr; }
-    .phone{ margin-top:20px; }
-    .schema-grid{ grid-template-columns:1fr; }
-    .insights-grid{ grid-template-columns:1fr; }
-    nav ul{ display:none; }
-    section{ padding:64px 0; }
-  }
+/* ---------- responsive ---------- */
+@media (max-width:860px){
+.hero{ grid-template-columns:1fr; }
+.phone{ margin-top:20px; }
+.schema-grid{ grid-template-columns:1fr; }
+.insights-grid{ grid-template-columns:1fr; }
+nav ul{ display:none; }
+section{ padding:64px 0; }
+}
 
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
-  }
+@media (prefers-reduced-motion: reduce){
+*{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
+}
 
-  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
+:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap">
-    <div class="brand"><span class="brand-dot"></span> Trabajo Práctico Final&nbsp;-&nbsp;Bruno Bustos</div>
-    <ul>
-      <li><a href="#dataset">La base de datos</a></li>
-      <li><a href="#visualizacion">Visualización</a></li>
-      <li><a href="#insights">Hallazgos</a></li>
-    </ul>
-    <div class="nav-time mono" id="clock">--:--</div>
-  </div>
+<div class="wrap">
+<div class="brand"><span class="brand-dot"></span> Trabajo Práctico Individual</div>
+<ul>
+<li><a href="#dataset">Base de datos</a></li>
+<li><a href="#visualizacion">Visualizaciónes</a></li>
+<li><a href="#insights">Hallazgos</a></li>
+</ul>
+<div class="nav-time mono" id="clock">--:--</div>
+</div>
 </nav>
 
 <header class="hero wrap">
-  <div>
-    <div class="eyebrow">Trabajo práctico · Análisis de datos</div>
-    <h1>Cómo uso mi <em>Galaxy&nbsp;S23</em>, en números.</h1>
-    <p class="lead">
-      Un relevamiento propio del uso diario del teléfono: tiempo de pantalla, apps más usadas
-      y patrones a lo largo de la semana, organizados en una base de datos y presentados en el
-      panel de abajo.
-    </p>
-    <div class="hero-meta">
-      <div><strong>102</strong>días registrados</div>
-      <div><strong>+130</strong>apps analizadas</div>
-      <div><strong>7,57hs</strong>promedio diario</div>
-    </div>
-  </div>
+<div>
+<div class="eyebrow">Trabajo práctico · Análisis de datos</div>
+<h1>Cómo uso mi <em>Galaxy&nbsp;S23</em>, en números.</h1>
+<p class="lead">
+Un relevamiento propio del uso diario del teléfono extraído vía <span class="mono" style="color:var(--text)">adb dumpsys usagestats</span>:
+tiempo por aplicación, notificaciones y horarios, organizados en una base de datos y
+presentados a continuación.
+</p>
+<div class="hero-meta">
+<div><strong>103</strong>días registrados</div>
+<div><strong>+130</strong>apps analizadas</div>
+<div><strong>7,6h</strong>promedio diario</div>
+</div>
+</div>
 
-  <div>
-    <div class="phone">
-      <div class="cam-hole"></div>
-      <div class="phone-screen">
-        <div class="phone-status">
-          <span id="phone-clock">--:--</span>
-          <div class="icons">
-            <span>•••</span>
-            <span>▮▮▮</span>
-          </div>
-        </div>
-        <div class="phone-body">
-          <div>
-            <div class="big-stat" id="counter">7h</div>
-            <div class="stat-label">Tiempo de pantalla / hoy</div>
-          </div>
-          <div class="bars" id="bars"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div>
+<div class="phone">
+<div class="cam-hole"></div>
+<div class="phone-screen">
+<div class="phone-status">
+<span id="phone-clock">--:--</span>
+<div class="icons">
+<span>•••</span>
+<span>▮▮▮</span>
+</div>
+</div>
+<div class="phone-body">
+<div>
+<div class="big-stat" id="counter">0h</div>
+<div class="stat-label">Promedio diario de uso</div>
+</div>
+<div class="bars" id="bars"></div>
+</div>
+</div>
+</div>
+</div>
 </header>
 
 <section id="dataset">
-  <div class="wrap reveal">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Estructura de Datos</div>
-        <h2>La base de datos</h2>
-      </div>
-      <p>Así está modelado el registro de uso: una tabla principal de sesiones y una tabla de referencia de aplicaciones. Reemplazá el esquema con el tuyo si difiere.</p>
-    </div>
+<div class="wrap reveal">
+<div class="section-head">
+<div>
+<div class="eyebrow">01 — Contexto</div>
+<h2>La base de datos</h2>
+</div>
+<p>El registro sale del bucket <span class="mono">yearly</span> de <span class="mono">dumpsys usagestats</span> — pese al nombre, cubre el historial máximo que retiene el sistema, no un año completo.</p>
+</div>
 
-    <div class="schema-grid">
-      <div class="schema-card">
-        <h3>Esquema · tabla principal</h3>
-        <p>Definición de <span class="mono">uso_sesiones</span></p>
-        <div class="code-block">
-<span class="k">CREATE TABLE</span> <span class="t">uso_sesiones</span> (<br>
-&nbsp;&nbsp;id_sesion&nbsp;&nbsp;&nbsp;&nbsp;INTEGER&nbsp;&nbsp;<span class="c">PRIMARY KEY</span>,<br>
-&nbsp;&nbsp;fecha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATE,<br>
-&nbsp;&nbsp;app&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VARCHAR,<br>
-&nbsp;&nbsp;categoria&nbsp;&nbsp;&nbsp;&nbsp;VARCHAR,<br>
-&nbsp;&nbsp;duracion_min&nbsp;INTEGER,<br>
-&nbsp;&nbsp;desbloqueos&nbsp;&nbsp;INTEGER<br>
+<div class="schema-grid">
+<div class="schema-card">
+<h3>Esquema · tabla principal</h3>
+<p>Definición de <span class="mono">uso_apps</span></p>
+<div class="code-block">
+<span class="k">CREATE TABLE</span> <span class="t">uso_apps</span> (<br>
+&nbsp;&nbsp;paquete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VARCHAR&nbsp;&nbsp;<span class="c">PRIMARY KEY</span>,<br>
+&nbsp;&nbsp;nombre_app&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VARCHAR,<br>
+&nbsp;&nbsp;horas_uso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DECIMAL,<br>
+&nbsp;&nbsp;horas_visible&nbsp;&nbsp;&nbsp;&nbsp;DECIMAL,<br>
+&nbsp;&nbsp;porcentaje_total&nbsp;DECIMAL,<br>
+&nbsp;&nbsp;aperturas&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTEGER,<br>
+&nbsp;&nbsp;ultimo_uso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIMESTAMP<br>
 );
-        </div>
-      </div>
+</div>
+</div>
 
-      <div class="schema-card">
-        <h3>Campos y fuente</h3>
-        <p>De dónde sale cada dato registrado</p>
-        <ul class="field-list">
-          <li><span>fuente</span><span>Digital Wellbeing - Dump del Teléfono</span></li>
-          <li><span>granularidad</span><span> Últimos 102 días de uso</span></li>
-          <li><span>período</span><span>25/04/2026 - 06/08/2026</span></li>
-          <li><span>registros totales</span><span>[ completar N° de filas ]</span></li>
-          <li><span>formato</span><span>CSV → base de datos</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<div class="schema-card">
+<h3>Campos y fuente</h3>
+<p>De dónde sale cada dato registrado</p>
+<ul class="field-list">
+<li><span>fuente</span><span>adb dumpsys usagestats (bucket yearly)</span></li>
+<li><span>granularidad</span><span>acumulado por app, no por sesión</span></li>
+<li><span>período</span><span>25/04/2026 – 06/08/2026 (102,7 días)</span></li>
+<li><span>registros totales</span><span>130 apps con uso &gt; 0</span></li>
+<li><span>formato</span><span>TXT (dumpsys) → CSV</span></li>
+</ul>
+</div>
+</div>
+  <br></br>
+  <div class="viz-card">
+<div class="viz-titlebar">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="label">Estos datos se recopilaron a partir de un dump generado por la aplicación predeterminada de Samsung llamada Digital Wellbeing. Estos datos se exportaron desde mi teléfono personal en un formato .txt y fueron procesados para ser usados en el análisis de los patrones de uso. El dump generado contiene logs de 103 días de uso, comenzando desde el 25 de Abril hasta el 6 de Agosto del 2026. Vale mencionar que el dump almacena información detallada de uso únicamente de las últimas 24 horas, y después almacena métricas clave en una forma generalizada. Por ejemplo, el dump tiene registros de fecha y hora de entrada y salida a aplicaciónes del 6 de agosto (último día completo), pero para días anteriores, los datos cambian unicamente a cuanto tiempo se usó la aplicación.</span>
+</div>
+</div>
+
+</section>
+   
+  
+<section id="visualizacion">
+<div class="wrap reveal">
+<div class="section-head">
+<div>
+<div class="eyebrow">Visualización #1</div>
+<h2>TreeMap usando Tableau</h2>
+</div>
+<p>
+<div>TreeMap destacando el uso por aplicación en horas totales.</p>
+</div>   
+<div class='tableauPlaceholder' id='viz1787375969439' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrabajoPractico_17873748303940&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TrabajoPractico_17873748303940&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrabajoPractico_17873748303940&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1787375969439');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+</div>
 </section>
 
 <section id="visualizacion">
-  <div class="wrap reveal">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Visualización #1</div>
-        <h2>Gráfico de Barras en Datawrapper</h2>
-      </div>
-      <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
-    </div>
-
-    <div class="viz-card">
-      <div class="viz-titlebar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="label">Aplicaciones y Procesos Más Usadas</span>
-      </div>
-      <div class="viz-body">
-        <div class="viz-placeholder">
-          <iframe title="Top 20 Procesos Mas Usados en Horas" aria-label="Bar Chart" id="datawrapper-chart-vqRPm" src="https://datawrapper.dwcdn.net/vqRPm/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="595" data-external="1"></iframe><script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
-          <div>Este gráfico de barras muestra las horas totales de uso por aplicación, con la distinción que las barras rojas representan procesos internos del telefono, y no.</div>
-        </div>
-        <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
-      </div>
-    </div>
-    
-  </div>
-  
+<div class="wrap reveal">
+<div class="section-head">
+<div>
+<div class="eyebrow">Visualización #2</div>
+<h2>Gráfico de Area en Flourish</h2>
+</div>
+<p>Gráfico presentando el promedio de los patrones de uso el último dia registrado por completo (6 de Agosto).</p>
+</div>
+<div class="viz-card">
+<div class="viz-titlebar">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="label">Interacciones con el Teléfono</span>
+</div>
+<style>
+.viz-body {
+min-height: 80vh;
+}
+</style>
+<div class="viz-body">
+<div class="viz-placeholder">
+<iframe src='https://flo.uri.sh/visualisation/30026223/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+</div>
+<iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
+</div>
+</div>
+</div>
 </section>
 
 <section id="visualizacion">
-  <div class="wrap reveal">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Visualización #2</div>
-        <h2>Gráfico de Area en Flourish</h2>
-      </div>
-      <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
-    </div>
-
-    <div class="viz-card">
-      <div class="viz-titlebar">
-        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-        <span class="label">Interacciones con el Teléfono</span>
-      </div>
-      <div class="viz-body">
-        <div class="viz-placeholder">
-          <iframe src='https://flo.uri.sh/visualisation/30026223/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-          <div>Este gráfico muestra cuantas veces el telefono se desbloqueó, encendió la pantalla y recibió notificaciones en promedio. </div>
-        </div>
-        <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
-      </div>
-    </div>
-    
-  </div>
-  
+<div class="wrap reveal">
+<div class="section-head">
+<div>
+<div class="eyebrow">Visualización #3</div>
+<h2>Sankey Diagram en RAW Graphs</h2>
+</div>
+<p>Gráfico mostrando las aplicaciones junto con sus respectivas categorías y horas de uso.</p>
+</div>
+<div class="viz-card">
+<div class="viz-titlebar">
+<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+<span class="label">Aplicaciones y Procesos Más Usadas en Horas.</span>
+</div>
+<div class="viz-body">
+<object type="image/svg+xml" data="./Diagrama_Sankey.svg" style="width:100%;height:100%;pointer-events:auto;"></object>
+</div>
+</div>
 </section>
-  
+
+<section id="visualizacion">
+<div class="wrap reveal">
+<div class="section-head">
+<div>
+<div class="eyebrow">Visualización #4</div>
+<h2>Gráfico de Barras - Datawrapper</h2>
+</div>
+<p>Gráfico detallando la tendencia de uso de distintas aplicaciones durante la última semana expresado en porcentajes.</p>
+</div>
+<iframe title="Tendencias de uso de aplicaciones con respecto al historial" aria-label="Bar Chart" id="datawrapper-chart-Mf3vr" src="https://datawrapper.dwcdn.net/Mf3vr/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="888" data-external="1"></iframe><script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+</div>
+
+</section>
+
 <section id="insights">
-  <div class="wrap reveal">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">03 — Lectura</div>
-        <h2>Hallazgos principales</h2>
-      </div>
-      <p>Tres conclusiones que se desprenden del análisis. Ajustá los números y textos con tus resultados reales.</p>
-    </div>
+<div class="wrap reveal">
+<div class="section-head">
+<div>
+<div class="eyebrow">03 — Conclusiones</div>
+<h2>Hallazgos principales</h2>
+</div>
+</div>
 
-    <div class="insights-grid">
-      <div class="insight-card">
-        <div class="num">Whatsapp</div>
-        <h4>App más usada</h4>
-        <p>[ Completar con la categoría o app que concentra más tiempo de uso y por qué. ]</p>
-      </div>
-      <div class="insight-card">
-        <div class="num">[ X ]h</div>
-        <h4>Pico de uso</h4>
-        <p>[ Completar con el horario o día de mayor actividad detectado en los datos. ]</p>
-      </div>
-      <div class="insight-card">
-        <div class="num">[ X ]</div>
-        <h4>Desbloqueos / día</h4>
-        <p>[ Completar con el promedio de desbloqueos diarios y una observación sobre el patrón. ]</p>
-      </div>
-    </div>
-  </div>
+<div class="insights-grid">
+<div class="insight-card">
+<div class="num">35,6%</div>
+<h4>App más usada: WhatsApp</h4>
+<p>Concentra más de un tercio de las 777,9h totales registradas — casi el doble que Instagram, la segunda app (22,1%) en los últimos 103 días.</p>
+</div>
+<div class="insight-card">
+<div class="num">12:00h</div>
+<h4>Pico de uso</h4>
+<p>El mediodía concentra la mayor cantidad de aperturas de apps en promedio de los últimos 103 días con 120 eventos, por delante de las 11h y las 19h.</p>
+</div>
+<div class="insight-card">
+<div class="num">60</div>
+<h4>Desbloqueos de telefono</h4>
+<p> 60 desbloqueos de pantalla en promedio de los últimos 103 días.</p>
+</div>
+</div>
+</div>
 </section>
 
 <footer>
-  <div class="wrap">
-    <span>Trabajo práctico — Análisis de uso del dispositivo</span>
-    <span class="mono">[ Nombre ] · [ Fecha ]</span>
-  </div>
+<div class="wrap">
+<span>Trabajo práctico — Análisis de uso del dispositivo</span>
+<span class="mono">Bruno Bustos · 22/08/2026</span>
+</div>
 </footer>
 
 <script>
-  // reloj real en la barra de navegación y en el mockup del teléfono
-  function tick(){
-    const now = new Date();
-    const t = now.toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
-    document.getElementById('clock').textContent = t;
-    document.getElementById('phone-clock').textContent = t;
-  }
-  tick();
-  setInterval(tick, 1000 * 30);
+// reloj real en la barra de navegación y en el mockup del teléfono
+function tick(){
+const now = new Date();
+const t = now.toLocaleTimeString('es-AR', {hour:'2-digit', minute:'2-digit'});
+document.getElementById('clock').textContent = t;
+document.getElementById('phone-clock').textContent = t;
+}
+tick();
+setInterval(tick, 1000 * 30);
 
-  // barras decorativas del mockup
-  const barsEl = document.getElementById('bars');
-  const heights = [30,55,40,70,45,60,38];
-  heights.forEach((h,i)=>{
-    const bar = document.createElement('i');
-    bar.style.height = h + '%';
-    bar.style.animationDelay = (i*0.08)+'s';
-    barsEl.appendChild(bar);
-  });
+// barras decorativas del mockup
+const barsEl = document.getElementById('bars');
+const heights = [30,55,40,70,45,60,38];
+heights.forEach((h,i)=>{
+const bar = document.createElement('i');
+bar.style.height = h + '%';
+bar.style.animationDelay = (i*0.08)+'s';
+barsEl.appendChild(bar);
+});
 
-  // contador animado del "big stat" en el teléfono (placeholder: 5h)
-  const counterEl = document.getElementById('counter');
-  let target = 5, current = 0;
-  const counterInterval = setInterval(()=>{
-    current += 1;
-    counterEl.textContent = current + 'h';
-    if(current >= target) clearInterval(counterInterval);
-  }, 180);
+// contador animado del "big stat" en el teléfono (placeholder: 5h)
+const counterEl = document.getElementById('counter');
+let target = 7, current = 0;
+const counterInterval = setInterval(()=>{
+current += 1;
+if(current >= target){
+counterEl.textContent = '7,6h';
+clearInterval(counterInterval);
+} else {
+counterEl.textContent = current + 'h';
+}
+}, 180);
 
-  // reveal on scroll
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
-  }, {threshold:0.12});
-  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// reveal on scroll
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-  // si el iframe tiene src cargado, ocultar el placeholder
-  const iframe = document.getElementById('chart-embed');
-  const placeholder = document.querySelector('.viz-placeholder');
-  if(iframe.getAttribute('src') && iframe.getAttribute('src').trim() !== ''){
-    placeholder.style.display = 'none';
-  }
+// si el iframe tiene src cargado, ocultar el placeholder
+const iframe = document.getElementById('chart-embed');
+const placeholder = document.querySelector('.viz-placeholder');
+if(iframe.getAttribute('src') && iframe.getAttribute('src').trim() !== ''){
+placeholder.style.display = 'none';
+}
 </script>
 
 </body>
