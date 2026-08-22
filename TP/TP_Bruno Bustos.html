@@ -19,11 +19,11 @@
     --line:rgba(58,52,44,0.10);
     --radius:18px;
   }
-
+ 
   *{ margin:0; padding:0; box-sizing:border-box; }
-
+ 
   html{ scroll-behavior:smooth; }
-
+ 
   body{
     background:var(--bg);
     color:var(--text);
@@ -32,7 +32,7 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
-
+ 
   /* subtle ambient glow backdrop */
   body::before{
     content:'';
@@ -44,18 +44,18 @@
     pointer-events:none;
     z-index:0;
   }
-
+ 
   h1,h2,h3{ font-family:'Space Grotesk', sans-serif; letter-spacing:-0.02em; }
-
+ 
   .mono{ font-family:'JetBrains Mono', monospace; }
-
+ 
   a{ color:inherit; }
-
+ 
   /* ---------- layout shells ---------- */
   .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
-
+ 
   section{ padding:96px 0; }
-
+ 
   .eyebrow{
     font-family:'JetBrains Mono', monospace;
     font-size:13px;
@@ -73,7 +73,7 @@
     background:var(--accent);
     display:inline-block;
   }
-
+ 
   /* ---------- nav ---------- */
   nav{
     position:sticky; top:0; z-index:50;
@@ -109,7 +109,7 @@
     font-size:13px;
     color:var(--muted);
   }
-
+ 
   /* ---------- hero ---------- */
   .hero{
     padding-top:88px;
@@ -150,7 +150,7 @@
     color:var(--text);
     font-weight:500;
   }
-
+ 
   /* ---------- phone mockup (signature element) ---------- */
   .phone{
     width:280px;
@@ -220,7 +220,7 @@
     animation:rise 1.4s ease-out both;
   }
   @keyframes rise{ from{ transform:scaleY(0); transform-origin:bottom; } to{ transform:scaleY(1); } }
-
+ 
   /* ---------- section headers ---------- */
   .section-head{
     display:flex; justify-content:space-between; align-items:flex-end;
@@ -230,7 +230,7 @@
   }
   .section-head h2{ font-size:32px; font-weight:600; }
   .section-head p{ color:var(--muted); font-size:15px; max-width:420px; }
-
+ 
   /* ---------- database schema block ---------- */
   .schema-grid{
     display:grid;
@@ -263,7 +263,7 @@
   .code-block .k{ color:#8B6FD1; }
   .code-block .t{ color:#2F9E82; }
   .code-block .c{ color:var(--muted); }
-
+ 
   .field-list{ list-style:none; font-size:14px; }
   .field-list li{
     display:flex; justify-content:space-between;
@@ -273,7 +273,7 @@
   .field-list li:last-child{ border-bottom:none; }
   .field-list span:first-child{ color:var(--text); font-family:'JetBrains Mono', monospace; font-size:13px; }
   .field-list span:last-child{ color:var(--muted); font-size:13px; }
-
+ 
   /* ---------- viz / embed section ---------- */
   .viz-card{
     background:var(--surface);
@@ -306,6 +306,10 @@
   }
   .viz-body iframe{
     width:100%; height:100%; border:0; position:relative; z-index:2;
+    display:none; /* se muestra solo cuando tiene un src real (ver script al final) */
+  }
+  .viz-body iframe[src]:not([src=""]){
+    display:block;
   }
   .viz-placeholder{
     position:absolute; inset:0;
@@ -319,7 +323,7 @@
     pointer-events:none;
   }
   .viz-placeholder .mono{ color:var(--accent); font-size:13px; }
-
+ 
   /* ---------- insights ---------- */
   .insights-grid{
     display:grid;
@@ -346,7 +350,7 @@
   }
   .insight-card h4{ font-size:15px; font-weight:600; margin-bottom:8px; }
   .insight-card p{ font-size:13.5px; color:var(--muted); }
-
+ 
   /* ---------- footer ---------- */
   footer{
     border-top:1px solid var(--line);
@@ -357,11 +361,11 @@
     color:var(--muted);
     font-size:13px;
   }
-
+ 
   /* ---------- scroll reveal ---------- */
   .reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.in{ opacity:1; transform:translateY(0); }
-
+ 
   /* ---------- responsive ---------- */
   @media (max-width:860px){
     .hero{ grid-template-columns:1fr; }
@@ -371,16 +375,16 @@
     nav ul{ display:none; }
     section{ padding:64px 0; }
   }
-
+ 
   @media (prefers-reduced-motion: reduce){
     *{ animation-duration:0.01ms !important; transition-duration:0.01ms !important; }
   }
-
+ 
   :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; }
 </style>
 </head>
 <body>
-
+ 
 <nav>
   <div class="wrap">
     <div class="brand"><span class="brand-dot"></span> Trabajo Práctico Individual</div>
@@ -392,7 +396,7 @@
     <div class="nav-time mono" id="clock">--:--</div>
   </div>
 </nav>
-
+ 
 <header class="hero wrap">
   <div>
     <div class="eyebrow">Trabajo práctico · Análisis de datos</div>
@@ -408,7 +412,7 @@
       <div><strong>7,6h</strong>promedio diario</div>
     </div>
   </div>
-
+ 
   <div>
     <div class="phone">
       <div class="cam-hole"></div>
@@ -431,7 +435,7 @@
     </div>
   </div>
 </header>
-
+ 
 <section id="dataset">
   <div class="wrap reveal">
     <div class="section-head">
@@ -441,7 +445,7 @@
       </div>
       <p>El registro sale del bucket <span class="mono">yearly</span> de <span class="mono">dumpsys usagestats</span> — pese al nombre, cubre el historial máximo que retiene el sistema, no un año completo.</p>
     </div>
-
+ 
     <div class="schema-grid">
       <div class="schema-card">
         <h3>Esquema · tabla principal</h3>
@@ -458,7 +462,7 @@
 );
         </div>
       </div>
-
+ 
       <div class="schema-card">
         <h3>Campos y fuente</h3>
         <p>De dónde sale cada dato registrado</p>
@@ -473,7 +477,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section id="visualizacion">
   <div class="wrap reveal">
     <div class="section-head">
@@ -487,7 +491,7 @@
     <div>Este gráfico de barras muestra las horas totales de uso por aplicación, con la distinción que las barras rojas representan procesos internos del telefono, y no.</div>
   </div>
 </section>
-
+ 
 <section id="visualizacion">
   <div class="wrap reveal">
     <div class="section-head">
@@ -527,7 +531,7 @@
       </div>
       <p>Diagrama mostrando las aplicaciones y sus respectivas categorías.</p>
     </div>
-
+ 
     <div class="viz-card">
       <div class="viz-titlebar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -535,7 +539,7 @@
       </div>
       <div class="viz-body">
         <div class="viz-placeholder">
-          <object type="image/svg+xml" data=".TP/Diagrama_Sankey.svg"></object>
+          <object type="image/svg+xml" data="./Diagrama_Sankey.svg" style="width:100%;height:100%;pointer-events:auto;"></object>
           <div>Este gráfico de barras muestra las horas totales de uso por aplicación, con la distinción que las barras rojas representan procesos internos del telefono, y no.</div>
         </div>
         <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
@@ -544,7 +548,7 @@
   </div>
   
 </section>
-
+ 
 <section id="visualizacion">
   <div class="wrap reveal">
     <div class="section-head">
@@ -554,7 +558,7 @@
       </div>
       <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
     </div>
-
+ 
     <div class="viz-card">
       <div class="viz-titlebar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -573,7 +577,7 @@
   </div>
   
 </section>
-
+ 
 <section id="insights">
   <div class="wrap reveal">
     <div class="section-head">
@@ -583,7 +587,7 @@
       </div>
       <p>Tres lecturas que surgen de cruzar el total por app, el patrón horario de un día muestra (jueves 6 de agosto) y la comparación de ventanas de tiempo.</p>
     </div>
-
+ 
     <div class="insights-grid">
       <div class="insight-card">
         <div class="num">35,6%</div>
@@ -603,14 +607,14 @@
     </div>
   </div>
 </section>
-
+ 
 <footer>
   <div class="wrap">
     <span>Trabajo práctico — Análisis de uso del dispositivo</span>
     <span class="mono">Bruno Bustos · 22/08/2026</span>
   </div>
 </footer>
-
+ 
 <script>
   // reloj real en la barra de navegación y en el mockup del teléfono
   function tick(){
@@ -621,7 +625,7 @@
   }
   tick();
   setInterval(tick, 1000 * 30);
-
+ 
   // barras decorativas del mockup
   const barsEl = document.getElementById('bars');
   const heights = [30,55,40,70,45,60,38];
@@ -631,7 +635,7 @@
     bar.style.animationDelay = (i*0.08)+'s';
     barsEl.appendChild(bar);
   });
-
+ 
   // contador animado del "big stat" en el teléfono (placeholder: 5h)
   const counterEl = document.getElementById('counter');
   let target = 7, current = 0;
@@ -644,13 +648,13 @@
       counterEl.textContent = current + 'h';
     }
   }, 180);
-
+ 
   // reveal on scroll
   const observer = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
   }, {threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
+ 
   // si el iframe tiene src cargado, ocultar el placeholder
   const iframe = document.getElementById('chart-embed');
   const placeholder = document.querySelector('.viz-placeholder');
@@ -658,6 +662,11 @@
     placeholder.style.display = 'none';
   }
 </script>
-
+ 
 </body>
 </html>
+ 
+
+
+
+
