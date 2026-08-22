@@ -383,10 +383,10 @@
 
 <nav>
   <div class="wrap">
-    <div class="brand"><span class="brand-dot"></span> Uso&nbsp;/&nbsp;S23</div>
+    <div class="brand"><span class="brand-dot"></span> Trabajo Práctico Individual</div>
     <ul>
-      <li><a href="#dataset">La base de datos</a></li>
-      <li><a href="#visualizacion">Visualización</a></li>
+      <li><a href="#dataset">Base de datos</a></li>
+      <li><a href="#visualizacion">Visualizaciónes</a></li>
       <li><a href="#insights">Hallazgos</a></li>
     </ul>
     <div class="nav-time mono" id="clock">--:--</div>
@@ -399,12 +399,12 @@
     <h1>Cómo uso mi <em>Galaxy&nbsp;S23</em>, en números.</h1>
     <p class="lead">
       Un relevamiento propio del uso diario del teléfono extraído vía <span class="mono" style="color:var(--text)">adb dumpsys usagestats</span>:
-      tiempo por app, notificaciones y patrones horarios, organizados en una base de datos y
-      presentados en el panel de abajo.
+      tiempo por aplicación, notificaciones y horarios, organizados en una base de datos y
+      presentados a continuación.
     </p>
     <div class="hero-meta">
       <div><strong>103</strong>días registrados</div>
-      <div><strong>130</strong>apps analizadas</div>
+      <div><strong>+130</strong>apps analizadas</div>
       <div><strong>7,6h</strong>promedio diario</div>
     </div>
   </div>
@@ -482,11 +482,12 @@
         <h2>TreeMap usando Tableau</h2>
       </div>
     </div>   
-    <div></div>
     <div class='tableauPlaceholder' id='viz1787375969439' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrabajoPractico_17873748303940&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='TrabajoPractico_17873748303940&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Tr&#47;TrabajoPractico_17873748303940&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1787375969439');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <br></br>
     <div>Este gráfico de barras muestra las horas totales de uso por aplicación, con la distinción que las barras rojas representan procesos internos del telefono, y no.</div>
   </div>
 </section>
+
 <section id="visualizacion">
   <div class="wrap reveal">
     <div class="section-head">
@@ -496,21 +497,23 @@
       </div>
       <p>Este gráfico muestra las horas de uso por aplicación.</p>
     </div>
-
     <div class="viz-card">
       <div class="viz-titlebar">
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
         <span class="label">Interacciones con el Teléfono</span>
       </div>
+      <style>
+        .viz-body {
+          min-height: 80vh;
+        }
+      </style>
       <div class="viz-body">
         <div class="viz-placeholder">
-          <iframe src='https://flo.uri.sh/visualisation/30026223/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-          <div>Este gráfico muestra cuantas veces el telefono se desbloqueó, encendió la pantalla y recibió notificaciones en promedio. </div>
+        <iframe src='https://flo.uri.sh/visualisation/30026223/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
         </div>
         <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
       </div>
     </div>
-    
   </div>
   
 </section>
@@ -520,9 +523,9 @@
     <div class="section-head">
       <div>
         <div class="eyebrow">Visualización #3</div>
-        <h2>Gráfico Sankey en Tableau</h2>
+        <h2>Sankey en RAW Graphs</h2>
       </div>
-      <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
+      <p>Diagrama mostrando las aplicaciones y sus respectivas categorías.</p>
     </div>
 
     <div class="viz-card">
@@ -532,13 +535,12 @@
       </div>
       <div class="viz-body">
         <div class="viz-placeholder">
-          <iframe title="Top 20 Procesos Mas Usados en Horas" aria-label="Bar Chart" id="datawrapper-chart-vqRPm" src="https://datawrapper.dwcdn.net/vqRPm/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="595" data-external="1"></iframe><script type="text/javascript">(function(){function e(){window.addEventListener(`message`,function(e){if(e.data[`datawrapper-height`]!==void 0){var t=document.querySelectorAll(`iframe`);for(var n in e.data[`datawrapper-height`])for(var r=0,i;i=t[r];r++)if(i.contentWindow===e.source){var a=e.data[`datawrapper-height`][n]+`px`;i.style.height=a}}})}e()})();</script>
+          <object type="image/svg+xml" data=".TP/Diagrama_Sankey.svg"></object>
           <div>Este gráfico de barras muestra las horas totales de uso por aplicación, con la distinción que las barras rojas representan procesos internos del telefono, y no.</div>
         </div>
         <iframe id="chart-embed" src="" title="Panel de uso — Galaxy S23" loading="lazy"></iframe>
       </div>
     </div>
-    
   </div>
   
 </section>
@@ -547,7 +549,7 @@
   <div class="wrap reveal">
     <div class="section-head">
       <div>
-        <div class="eyebrow">Visualización #2</div>
+        <div class="eyebrow">Visualización #4</div>
         <h2>Gráfico de Area en Flourish</h2>
       </div>
       <p>Acá va tu gráfico embebido (Looker Studio, Power BI, Tableau, etc.). Pegá el link en el <span class="mono">src</span> del iframe.</p>
@@ -558,6 +560,7 @@
         <span class="dot"></span><span class="dot"></span><span class="dot"></span>
         <span class="label">Interacciones con el Teléfono</span>
       </div>
+      
       <div class="viz-body">
         <div class="viz-placeholder">
           <iframe src='https://flo.uri.sh/visualisation/30026223/embed' title='Interactive or visual content' class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;' sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
@@ -658,4 +661,3 @@
 
 </body>
 </html>
-
